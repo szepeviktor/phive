@@ -9,7 +9,7 @@ jobs:
   phive:
     runs-on: ubuntu-latest
     steps:
-      - name: "Install PHP tools with PHIVE"
+      - name: "Install PHIVE"
         uses: "szepeviktor/phive@v1"
 ```
 

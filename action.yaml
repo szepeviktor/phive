@@ -10,7 +10,8 @@ inputs:
   home:
     description: "Home path of PHIVE"
     required: false
-    default: "$HOME/.phive"
+    # GitHub Actions don't have $HOME in any context
+    default: "${{ runner.temp }}/.phive"
   binPath:
     description: "Path of the PHIVE binary"
     required: false
