@@ -35,6 +35,7 @@ set -e
 
 if [ ! -r "${PHIVE_DOT_PATH}/phive.phar" ]; then
     mkdir -p "${PHIVE_DOT_PATH}/phive.gpg"
+    chmod 0700 "${PHIVE_DOT_PATH}/phive.gpg"
 
     if php -r 'exit(version_compare(PHP_VERSION, "7.2.0", "<") ? 0 : 1);'; then
         # Last phive version supporting PHP 7.1: v0.13.3
