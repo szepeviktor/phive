@@ -46,7 +46,7 @@ if [ ! -r "${PHIVE_DOT_PATH}/phive.phar" ]; then
         retry wget --tries=1 --output-document="${PHIVE_DOT_PATH}/phive.phar.asc" "https://phar.io/releases/phive.phar.asc"
     fi
     # Move gpg home into cached PHIVE_DOT_PATH
-    retry gpg --homedir "${PHIVE_DOT_PATH}/phive.gpg" --batch --keyserver ha.pool.sks-keyservers.net --keyserver-options timeout=30 --recv-keys "${PHIVE_SIGNING_KEY}"
+    retry gpg --homedir "${PHIVE_DOT_PATH}/phive.gpg" --batch --keyserver keys.openpgp.org --keyserver-options timeout=30 --recv-keys "${PHIVE_SIGNING_KEY}"
     if ! gpg --homedir "${PHIVE_DOT_PATH}/phive.gpg" --batch --verify "${PHIVE_DOT_PATH}/phive.phar.asc" "${PHIVE_DOT_PATH}/phive.phar"; then
         echo "Invalid phive signature" 1>&2
         rm -f "${PHIVE_DOT_PATH}/phive.phar"
